@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneVoiceBase">
+    <defName>DV_VoiceCow</defName>
+    <label>bovine voice</label>
+    <description>Carriers have a deep, bellowing voice like that of a cow.</description>
+    <iconPath>UI/Genes/Gene_VoiceBovine</iconPath>
+    <displayOrderInCategory>125</displayOrderInCategory>
+    <soundCall>Pawn_Brawnum_Call</soundCall>
+    <soundDeath>Pawn_Brawnum_Death</soundDeath>
+    <soundWounded>Pawn_Brawnum_Wounded</soundWounded>
+    <symbolPack>
+      <wholeNameSymbols>
+        <li><symbol>mooer</symbol></li>
+        <li><symbol>cow</symbol></li>
+      </wholeNameSymbols>
+      <prefixSymbols>
+        <li><symbol>low</symbol></li>
+        <li><symbol>moo</symbol></li>
+        <li><symbol>snort</symbol></li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li><symbol>lower</symbol></li>
+        <li><symbol>cow</symbol></li>
+        <li><symbol>bull</symbol></li>
+        <li><symbol>mooer</symbol></li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <ThoughtDef>
+    <defName>DV_GotSomeRoughLovin</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>10</stackLimit>
+    <stackedEffectMultiplier>0.6</stackedEffectMultiplier>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>got some rough lovin'</label>
+        <description>Now that's some proper snu snu! Nothing quite like it.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+        <baseOpinionOffset>8</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <GeneDef>
+    <defName>DV_RoughPlay</defName>
+    <label>rough play</label>
+    <iconPath>UI/Genes/Gene_RoughPlay</iconPath>
+    <description>Carriers of this gene have a larger body and a more "brutish" manner in which they engage in lovin', meaning they may damage their partner.</description>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>50</displayOrderInCategory>
+    <modExtensions>
+      <li Class="EBSGFramework.PostLovinThingsExtension">
+        <partnerHasNoneOf>
+          <li>DV_RoughPlay</li>
+        </partnerHasNoneOf>
+        <damageToPartner>Blunt</damageToPartner>
+        <damageAmount>3</damageAmount>
+        <partnerBodyParts>
+          <li>Pelvis</li>
+        </partnerBodyParts>
+        <partnerDamageChance>0.8</partnerDamageChance>
+        <partnerMemory>DV_GotSomeRoughLovin</partnerMemory>
+      </li>
+    </modExtensions>
+    <customEffectDescriptions>
+      <li>Pawns with this gene have a chance to damage another pawn during lovin', and their partner will get a bigger moodlet, unless they have the same gene.</li>
+    </customEffectDescriptions>
+    <biostatCpx>1</biostatCpx>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>DV_StrongBack</defName>
+    <label>strong back</label>
+    <iconPath>UI/Genes/Gene_StrongBack</iconPath>
+    <description>Carriers of this gene form stronger muscles on their backs and shoulders, and have tougher spines, allowing them to haul more weight over long distances.</description>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>50</displayOrderInCategory>
+    <statOffsets>
+      <CarryingCapacity>15</CarryingCapacity>
+      <VEF_MassCarryCapacity>30</VEF_MassCarryCapacity>
+    </statOffsets>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>heavy</symbol>
+        </li>
+        <li>
+          <symbol>strong</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>weight</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>DV_Melee_Slow</defName>
+    <label>slow hitter</label>
+    <iconPath>UI/Genes/Gene_HeavyHitter</iconPath>
+    <description>Carriers of this gene have heavier arms that make them slower at swinging melee weapons.</description>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>50</displayOrderInCategory>
+    <statOffsets>
+      <MeleeCooldownFactor>0.18</MeleeCooldownFactor>
+    </statOffsets>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>2</biostatMet>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>slow</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>hitter</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneEarsBase">
+    <defName>DV_Ears_Drooped</defName>
+    <label>drooped ears</label>
+    <description>Carriers of this gene grow scooped, lowered goat-like ears.</description>
+    <iconPath>UI/Genes/Gene_DroopedEars</iconPath>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/BovineEars/BovineEars</texPath>
+        <colorType>Skin</colorType>
+        <parentTagDef>Head</parentTagDef>
+        <useSkinShader>true</useSkinShader>
+        <useRottenColor>true</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData>
+            <layer>60</layer>
+          </defaultData>
+          <dataEast>
+            <layer>70</layer>
+          </dataEast>
+          <dataWest>
+            <layer>70</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>drooped</symbol>
+        </li>
+        <li>
+          <symbol>drab</symbol>
+        </li>
+        <li>
+          <symbol>sheep</symbol>
+        </li>
+        <li>
+          <symbol>droop</symbol>
+        </li>
+        <li>
+          <symbol>sag</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>goat</symbol>
+        </li>
+        <li>
+          <symbol>ear</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneNoseBase">
+    <defName>DV_Nose_Snout</defName>
+    <label>fatsnout</label>
+    <description>Carriers of this gene have engorged cow-like noses.</description>
+    <iconPath>UI/Genes/Gene_Fatsnout</iconPath>
+    <forcedHeadTypes>
+      <li>DV_Robust_Male_AverageNormal</li>
+      <li>DV_Robust_Female_AverageNormal</li>
+    </forcedHeadTypes>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/EnlargedSnout/EnlargedSnout</texPath>
+        <narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+        <useSkinShader>true</useSkinShader>
+        <useRottenColor>true</useRottenColor>
+        <colorType>Skin</colorType>
+        <parentTagDef>Head</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <visibleFacing>
+          <li>East</li>
+          <li>South</li>
+          <li>West</li>
+        </visibleFacing>
+        <drawData>
+          <defaultData>
+            <layer>60</layer>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <missingGeneRomanceChanceFactor>0.9</missingGeneRomanceChanceFactor>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>410</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>cow</symbol>
+        </li>
+        <li>
+          <symbol>beef</symbol>
+        </li>
+        <li>
+          <symbol>bull</symbol>
+        </li>
+        <li>
+          <symbol>bison</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>snout</symbol>
+        </li>
+        <li>
+          <symbol>beef</symbol>
+        </li>
+        <li>
+          <symbol>yak</symbol>
+        </li>
+        <li>
+          <symbol>schnoz</symbol>
+        </li>
+        <li>
+          <symbol>nose</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>DV_ShoulderFur</defName>
+    <label>shoulder fur</label>
+    <labelShortAdj>hairy</labelShortAdj>
+    <description>Carriers of this gene grow a thick cover of fur over their shoulders and upper backs, giving them more resistance to the cold.</description>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>400</displayOrderInCategory>
+    <iconPath>UI/Genes/Gene_Shoulderfur</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <minAgeActive>3</minAgeActive>
+    <statOffsets>
+      <ComfyTemperatureMin>-5</ComfyTemperatureMin>
+    </statOffsets>
+    <missingGeneRomanceChanceFactor>0.8</missingGeneRomanceChanceFactor>
+    <renderNodeProperties>
+      <li Class="EBSGFramework.PawnRenderNodeProperties_EBSG">
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <nodeClass>EBSGFramework.PawnRenderNode_EBSGAttachmentBody</nodeClass>
+        <texPaths>
+          <li>Things/Pawn/Humanlike/BodyAttachments/ShoulderfurHulk/Shoulderfur</li>
+          <li>Things/Pawn/Humanlike/BodyAttachments/ShoulderfurHulk/Shoulderfur2</li>
+        </texPaths>
+        <ageGraphics>
+          <li>
+            <ageRange>0~7</ageRange>
+            <child>Things/Pawn/Humanlike/BodyAttachments/ShoulderfurHulk/Shoulderfur_Toddler</child>
+          </li>
+          <li>
+            <ageRange>7~13</ageRange>
+            <child>Things/Pawn/Humanlike/BodyAttachments/ShoulderfurHulk/Shoulderfur_Child</child>
+          </li>          
+        </ageGraphics>
+        <hiddenByLayers>
+          <li>Shell</li>
+          <li>Middle</li>
+          <li>OnSkin</li>
+        </hiddenByLayers>
+        <relatedBodyPartGroups>
+          <li>Torso</li>
+        </relatedBodyPartGroups>
+        <apparelExceptions>
+          <li>Apparel_TribalA</li>
+          <li>VAE_Apparel_Overalls</li>
+          <li>VAE_Apparel_TankTop</li>
+          <li>VAE_Apparel_Apron</li>
+        </apparelExceptions>
+        <colorType>Hair</colorType>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>30</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0, 0, 0)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(0, 0, 0)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(0, 0, 0)</offset>
+          </dataEast>
+          <dataWest>
+            <offset>(0, 0, 0)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneHeadboneBase">
+    <defName>DV_Jaw_Bonechin</defName>
+    <label>bonebeard</label>
+    <description>Carriers of this gene grow multiple "tusks" from their jawbone which can come in a variety of shapes.</description>
+    <iconPath>UI/Genes/Gene_Bonebeard</iconPath>
+    <minAgeActive>13</minAgeActive>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPaths>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin1</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin2</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin3</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin4</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin5</li>
+          <li>Things/Pawn/Humanlike/HeadAttachments/Bonechin/Bonechin6</li>
+        </texPaths>
+        <color>(255, 255, 255)</color>
+        <parentTagDef>Head</parentTagDef>
+        <drawData>
+          <defaultData>
+            <layer>59</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>5</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>tusk</symbol>
+        </li>
+        <li>
+          <symbol>knob</symbol>
+        </li>
+        <li>
+          <symbol>spike</symbol>
+        </li>
+        <li>
+          <symbol>yak</symbol>
+        </li>
+        <li>
+          <symbol>bull</symbol>
+        </li>
+        <li>
+          <symbol>bison</symbol>
+        </li>
+        <li>
+          <symbol>cow</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>tusk</symbol>
+        </li>
+        <li>
+          <symbol>spike</symbol>
+        </li>
+        <li>
+          <symbol>bull</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>DV_Skin_EarthBrown</defName>
+    <label>earth skin</label>
+    <labelShortAdj>dirt</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that turns their skin a earthy brown color.</description>
+    <skinColorOverride>(143, 118, 93)</skinColorOverride>
+    <displayOrderInCategory>68</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>earth</symbol>
+        </li>
+        <li>
+          <symbol>dirt</symbol>
+        </li>
+        <li>
+          <symbol>mud</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>earth</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>DV_Skin_Cream</defName>
+    <label>cream skin</label>
+    <labelShortAdj>cream</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that turns their skin a creamy tan color.</description>
+    <skinColorOverride>(175, 162, 137)</skinColorOverride>
+    <displayOrderInCategory>68</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>cream</symbol>
+        </li>
+        <li>
+          <symbol>tan</symbol>
+        </li>
+        <li>
+          <symbol>light</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>cream</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>DV_Skin_AshBrown</defName>
+    <label>ash skin</label>
+    <labelShortAdj>ash</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that turns their skin a ashy brown color.</description>
+    <skinColorOverride>(101, 87, 78)</skinColorOverride>
+    <displayOrderInCategory>68</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>ash</symbol>
+        </li>
+        <li>
+          <symbol>burnt</symbol>
+        </li>
+        <li>
+          <symbol>brown</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>ash</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>DV_Skin_WoodBrown</defName>
+    <label>wood skin</label>
+    <labelShortAdj>wood</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that turns their skin a woody brown color.</description>
+    <skinColorOverride>(102, 79, 67)</skinColorOverride>
+    <displayOrderInCategory>68</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>wood</symbol>
+        </li>
+        <li>
+          <symbol>oak</symbol>
+        </li>
+        <li>
+          <symbol>bark</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>banana</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>DV_Skin_Charcoal</defName>
+    <label>charcoal skin</label>
+    <labelShortAdj>coal</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that turns their skin a dark charcoal color.</description>
+    <skinColorOverride>(70, 65, 63)</skinColorOverride>
+    <displayOrderInCategory>68</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>dark</symbol>
+        </li>
+        <li>
+          <symbol>ash</symbol>
+        </li>
+        <li>
+          <symbol>coal</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>charcoal</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+</Defs>
