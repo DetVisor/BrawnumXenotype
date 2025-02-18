@@ -68,7 +68,7 @@
       </li>
     </modExtensions>
     <customEffectDescriptions>
-      <li>Pawns with this gene have a chance to damage another pawn during lovin', and their partner will get a bigger moodlet, unless they have the same gene.</li>
+      <li>Pawns have a chance to damage another pawn during lovin', and their partner will get a bigger moodlet, unless they have the same gene.</li>
     </customEffectDescriptions>
     <biostatCpx>1</biostatCpx>
   </GeneDef>
@@ -300,9 +300,9 @@
         </relatedBodyPartGroups>
         <apparelExceptions>
           <li>Apparel_TribalA</li>
-          <li>VAE_Apparel_Overalls</li>
-          <li>VAE_Apparel_TankTop</li>
-          <li>VAE_Apparel_Apron</li>
+          <li MayRequire="vanillaexpanded.vappe">VAE_Apparel_Overalls</li>
+          <li MayRequire="vanillaexpanded.vappe">VAE_Apparel_TankTop</li>
+          <li MayRequire="vanillaexpanded.vappe">VAE_Apparel_Apron</li>
         </apparelExceptions>
         <colorType>Hair</colorType>
         <parentTagDef>Body</parentTagDef>

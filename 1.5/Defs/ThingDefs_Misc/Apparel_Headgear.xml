@@ -40,8 +40,7 @@
             <developmentalStageFilter>Child, Adult</developmentalStageFilter>
             <bodyPartGroups>
                 <li>UpperHead</li>
-            </bodyPartGroups>
-            <color>(141 , 145, 20, 255)</color>            
+            </bodyPartGroups>        
             <wornGraphicPath>Things/Pawn/Humanlike/Apparel/HaySunhat/HaySunhat</wornGraphicPath>
             <layers>
                 <li>Overhead</li>
