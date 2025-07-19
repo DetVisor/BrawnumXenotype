@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<XenotypeDef>
+    <defName>DV_Brawnum</defName>
+    <label>brawnum</label>
+    <description>Brawnum are the result of an experiment splicing together human and bovine DNA. This has left them with a muscular body, distinct bovine features, long and shaggy fur covering large portions of their body, and curious bone spikes that jut out from the bottom of their face.  They are suited for hard labor like planting and construction, and they have the constitution to shrug off the typical injuries that come from that job and just keep working away. But what is most notable about them is their powerful build and especially muscular arms. These enable the brawnum to carry far more than a baseliner, though their sheer size means that they require more rest and food as well. In addition, their muscles, while perfect for hauling, are ill-suited for fine motor control, making their melee strikes slow and clumsy and their art rather dire to look at.
+\n\nBrawnum were initially created by an agricultural corporation to try and increase the efficiency of their operations. This initiative ended up being a massive success, and they were soon integrated into construction megacorps, interstellar shipping companies, and colonization initiatives. Long after the company that created them stopped existing, brawnum were scattered far across the galaxy. To this day, it is not uncommon to see a brawnum working in some manner, whether it is the fields on a vast farm-world, the picturesque gardens of a glitterworld, or the sparse farms of a rimworld.</description>
+    <descriptionShort>Brawnum are the result of an experiment splicing together human and bovine DNA. This has left them with a muscular body, distinct bovine features, long and shaggy fur covering large portions of their body, and curious bone spikes that jut out from the bottom of their face.  They are suited for hard labor like planting and construction, and they have the constitution to shrug off the typical injuries that come from that job and just keep working away. But what is most notable about them is their powerful build and especially muscular arms. These enable the brawnum to carry far more than a baseliner, though their sheer size means that they require more rest and food as well. In addition, their muscles, while perfect for hauling, are ill-suited for fine motor control, making their melee strikes slow and clumsy and their art rather dire to look at.</descriptionShort>
+    <iconPath>UI/Xenotypes/Brawnum</iconPath>
+    <inheritable>true</inheritable>
+    <combatPowerFactor>1.3</combatPowerFactor>
+    <nameMaker>NamerPersonYttakin</nameMaker>
+    <chanceToUseNameMaker>1</chanceToUseNameMaker>
+    <genes>
+      <li>Body_Hulk</li>
+      <li>Beard_NoBeardOnly</li>
+      <li>DV_Ears_Drooped</li>
+      <li>DV_Nose_Snout</li>
+      <li>DV_Jaw_Bonechin</li>
+      <li>DV_ShoulderFur</li>
+      <li>Hair_ShortOnly</li>
+      <li>DV_Skin_EarthBrown</li>
+      <li>DV_Skin_Cream</li>
+      <li>DV_Skin_WoodBrown</li>
+      <li>DV_Skin_AshBrown</li>
+      <li>DV_Skin_Charcoal</li>
+      <li>DV_VoiceCow</li>
+      <li>DV_RoughPlay</li>
+      <li>Pain_Reduced</li>
+      <li>Fertile</li>      
+      <li>DV_Melee_Slow</li>
+      <li>Sleepy</li>
+      <li>KindInstinct</li>
+      <li>StrongStomach</li>
+      <li>DV_StrongBack</li>
+	    <li>MaxTemp_SmallDecrease</li>      
+      <li>Superclotting</li>
+      <li>AptitudeStrong_Plants</li>
+      <li>AptitudeStrong_Construction</li>
+      <li>AptitudeTerrible_Artistic</li>
+    </genes>
+  </XenotypeDef>
+
+</Defs>

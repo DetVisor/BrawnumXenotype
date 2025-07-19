@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TipSetDef>
+    <defName>DV_BrawnumTips</defName>
+    <tips>
+
+      <!-- Mechanitor -->
+      <li TKey="BrawnumWork">Brawnum are not only reliable as workers, but can also be reliable mechanitors, or soldiers, in a pinch.</li>
+      
+    </tips>
+  </TipSetDef>
+
+</Defs>

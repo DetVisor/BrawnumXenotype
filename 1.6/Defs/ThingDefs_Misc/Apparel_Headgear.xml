@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="HatMakeableBase">
+        <defName>DV_Apparel_HaySunhat</defName>
+        <label>hay sunhat</label>
+        <description>A floppy sunhat weaved out of dryed haygrass.</description>
+        <possessionCount>1</possessionCount>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Apparel/HaySunhat/HaySunhat</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.9, 0.9)</drawSize>
+            <color>(141 , 145, 20, 255)</color>      
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>80</MaxHitPoints>
+            <WorkToMake>1000</WorkToMake>
+            <Mass>0.14</Mass>
+            <EquipDelay>0.8</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+            <ComfyTemperatureMax>5</ComfyTemperatureMax>
+        </equippedStatOffsets>
+        <costList>
+            <Hay>15</Hay>
+        </costList>
+        <recipeMaker Inherit="False">
+            <effectWorking>Tailor</effectWorking>
+            <soundWorking>Recipe_Tailor</soundWorking>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <recipeUsers>
+                <li>CraftingSpot</li>
+                <li>HandTailoringBench</li>
+                <li>ElectricTailoringBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <apparel>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+            <bodyPartGroups>
+                <li>UpperHead</li>
+            </bodyPartGroups>        
+            <wornGraphicPath>Things/Pawn/Humanlike/Apparel/HaySunhat/HaySunhat</wornGraphicPath>
+            <layers>
+                <li>Overhead</li>
+            </layers>
+            <tags>
+                <li>IndustrialBasic</li>
+                <li>Western</li>
+            </tags>
+            <defaultOutfitTags>
+                <li>Worker</li>
+            </defaultOutfitTags>
+        </apparel>
+        <tradeTags>
+            <li>BasicClothing</li>
+        </tradeTags>
+    </ThingDef>
+
+</Defs>
